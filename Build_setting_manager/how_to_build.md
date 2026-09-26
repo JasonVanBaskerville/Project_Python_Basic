@@ -1,18 +1,18 @@
 ## Settings Manager
 
-Program ini digunakan untuk **mengelola user settings dalam dictionary**, seperti menambah, mengubah, menghapus, dan melihat pengaturan.
+This program is used to **manage user settings stored in a dictionary**, allowing for operations such as adding, modifying, deleting, and viewing settings.
 
-### Fitur
+### Features
 
-* `lowercase()` → mengubah key dan value string menjadi lowercase.
-* `add_setting()` → menambahkan setting baru dan mengecek apakah key sudah tersedia.
-* `update_setting()` → mengubah value dari setting yang sudah ada.
-* `delete_setting()` → menghapus setting berdasarkan key.
-* `view_settings()` → menampilkan seluruh setting yang tersedia atau memberikan pesan jika dictionary kosong.
+* `lowercase()` → converts string keys and values ​​to lowercase.
+* `add_setting()` → adds a new setting and checks if the key already exists.
+* `update_setting()` → modifies the value of an existing setting.
+* `delete_setting()` → removes a setting based on its key.
+* `view_settings()` → displays all available settings or shows a message if the dictionary is empty.
 
-Program juga menggunakan `isinstance()` untuk memastikan value yang akan diubah menjadi lowercase merupakan string.
+The program also uses `isinstance()` to ensure that values ​​being converted to lowercase are indeed strings.
 
-### Contoh
+### Example
 
 ```python
 settings = {
@@ -22,4 +22,4 @@ settings = {
 }
 ```
 
-Dengan fungsi yang tersedia, user dapat melakukan operasi **Create, Read, Update, dan Delete (CRUD)** pada dictionary settings.
+Using the available functions, the user can perform **Create, Read, Update, and Delete (CRUD)** operations on the settings dictionary.

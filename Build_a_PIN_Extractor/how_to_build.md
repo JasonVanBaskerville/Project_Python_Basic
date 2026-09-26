@@ -1,32 +1,32 @@
 ## Pin Extractor
 
-Program ini digunakan untuk **mengekstrak kode rahasia dari beberapa puisi**. Kode rahasia dibuat berdasarkan **panjang kata tertentu pada setiap baris puisi**.
+This program is used to **extract a secret code from a set of poems**. The secret code is generated based on the **length of a specific word in each line of the poem**.
 
-### Cara Kerja
+### How It Works
 
-Fungsi utama yang digunakan adalah:
+The main function used is:
 
 ```python
 def pin_extractor(poems):
 ```
 
-Fungsi menerima kumpulan puisi dalam bentuk list.
+The function accepts a collection of poems in the form of a list.
 
-Untuk setiap puisi:
+For each poem:
 
-1. Puisi dipecah menjadi beberapa baris menggunakan `split('\n')`.
-2. Setiap baris dipecah menjadi kata-kata menggunakan `split()`.
-3. Program menggunakan posisi baris (`line_index`) untuk menentukan kata yang akan digunakan.
+1. The poem is split into lines using `split('\n')`.
+2. Each line is split into words using `split()`.
+3. The program uses the line position (`line_index`) to determine which word to use.
 
-   * Baris ke-0 → mengambil kata ke-0
-   * Baris ke-1 → mengambil kata ke-1
-   * Baris ke-2 → mengambil kata ke-2
-   * dan seterusnya.
-4. Program menghitung jumlah karakter dari kata tersebut menggunakan `len()`.
-5. Jumlah karakter tersebut digabungkan menjadi sebuah kode.
-6. Jika pada suatu baris tidak terdapat kata pada posisi yang dibutuhkan, program memasukkan angka `0`.
+   * Line 0 → takes the 0th word
+   * Line 1 → takes the 1st word
+   * Line 2 → takes the 2nd word
+   * and so on.
+4. The program calculates the character count of that word using `len()`.
+5. These character counts are combined to form a code.
+6. If a line does not contain a word at the required position, the program inserts the number `0`.
 
-Contoh:
+Example:
 
 ```text
 The grass is green
@@ -35,66 +35,64 @@ hoping for rain
 before it turns yellow
 ```
 
-Pemilihan katanya:
+Word selection:
 
 ```text
-Baris 0 → The      → 3 karakter
-Baris 1 → and      → 3 karakter
-Baris 2 → rain     → 4 karakter
-Baris 3 → yellow   → 6 karakter
+Line 0 → The      → 3 characters
+Line 1 → and      → 3 characters
+Line 2 → rain     → 4 characters
+Line 3 → yellow   → 6 characters
 ```
 
-Sehingga kode yang dihasilkan:
+Resulting code:
 
 ```text
 3346
 ```
 
-### Bagian Penting
+### Key Parts
 
 ```python
 for line_index, line in enumerate(lines):
 ```
 
-`enumerate()` digunakan agar program mendapatkan **nomor indeks baris** sekaligus isi baris.
+`enumerate()` is used so the program obtains both the **line index number** and the line content.
 
 ```python
 words = line.split()
 ```
 
-Digunakan untuk memisahkan setiap baris menjadi daftar kata.
+Used to split each line into a list of words.
 
 ```python
 if len(words) > line_index:
 ```
 
-Digunakan untuk memastikan kata pada indeks yang dibutuhkan tersedia.
-
-```python
+Used to ensure that a word exists at the required index. ```python
 secret_code += str(len(words[line_index]))
 ```
 
-Menghitung jumlah karakter dari kata yang dipilih, kemudian mengubahnya menjadi string dan menambahkannya ke `secret_code`.
+Calculates the character count of the selected word, converts it into a string, and appends it to `secret_code`.
 
 ```python
 else:
     secret_code += '0'
 ```
 
-Jika kata pada posisi tersebut tidak tersedia, program menambahkan `0`.
+If a word is not available at that position, the program appends `0`.
 
 ### Output
 
-Ketika tiga puisi diberikan ke fungsi:
+When three poems are passed to the function:
 
 ```python
 print(pin_extractor([poem, poem2, poem3]))
 ```
 
-program menghasilkan:
+the program produces:
 
 ```text
 ['3550', '3346', '4311']
 ```
 
-Dengan demikian, program ini merupakan latihan penggunaan **function, loop, `enumerate()`, string manipulation, list, indexing, dan conditional statement** dalam Python.
+Thus, this program serves as an exercise in using **functions, loops, `enumerate()`, string manipulation, lists, indexing, and conditional statements** in Python.
