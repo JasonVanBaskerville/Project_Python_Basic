@@ -1,0 +1,3 @@
+# Implement the Luhn Algorithm
+
+This program implements the **Luhn Algorithm** to validate card numbers. First, the card number is stripped of hyphens (`-`) and spaces; then, every second digit—counting from the right—is multiplied by `2`. If the result of the multiplication exceeds `9`, `9` is subtracted from the value. Afterward, all the digits are summed up. If the total is divisible by `10`, the card number is considered **VALID**; otherwise, it is **INVALID**.
